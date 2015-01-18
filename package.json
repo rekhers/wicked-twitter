@@ -1,0 +1,11 @@
+{
+  "name": "wicked-data",
+  "version": "0.0.1",
+  "description": "track the colloquial use of 'wicked' in the US by mapping streaming twitter data onto a geochart",
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*",
+    "twitter": "*",
+	"ejs": "*"
+  }
+}

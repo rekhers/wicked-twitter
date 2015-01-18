@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="public/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
+	
+	<script>
+			    
+	var socket = io.connect();
+
+
+		socket.on('stream', function(tweet){
+				$('#tw').prepend('<h4>' + tweet.text + '</h4>' + '</br>');
+					});
+		
+
+	</script>
+	
+	
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+	<script type="text/javascript" src='https://www.google.com/maps/js?key=AIzaSyAqAwHfjSLmEbr8EK4WNV_LTC-dZlFv7Hg'></script>
+  	<script type="text/javascript" src='public/maptweets.js'></script>
+	
+			
+		  
+	
+</head>
+
+<body>
+		
+			<div class="container-fluid">
+				<div id="row-fluid">	
+
+
+					<div id="tw" class="col-md-4">
+					</div>
+					
+					<div id="map_canvas" class="col-md-8">
+					</div>
+					
+				</div>
+			</div>
+			
+			
+ 
+
+
+	
+</body>
+</html>

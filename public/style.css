@@ -1,0 +1,22 @@
+
+#map_canvas{
+	height: 600px;
+	width: 700px;
+	padding-left: 40px;
+}
+
+.container{
+	padding-top:50px;
+}
+
+header{
+	color:purple;
+	font-family: verdana;
+	font-size: 40px;
+}
+
+#tw{
+	.background-color: lavender;
+	
+}
+
