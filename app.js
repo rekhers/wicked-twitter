@@ -14,9 +14,6 @@ app.get('/', function(req, res){
 
 var wicked = "wicked";
 
-
-
-
 //verification 
 var client = new Twit({
      consumer_key: 'qfxuGZKQF8DtdZAB8oHHltsDQ',
@@ -27,30 +24,23 @@ var client = new Twit({
    
   
  
- //set up max connection one per user per session
-  
+ // to do: set up max connection one per user per session
    var loadClients = function(socket){
+   	 
 	 console.log('connected');	
-	 
-		 var stream =  client.stream('statuses/filter', {track: wicked});
-	 		
+	 var stream = client.stream('statuses/filter', {track: wicked});
 			stream.on('tweet', function(tweet){
 					 io.sockets.emit('stream', tweet);
-				 	
-				
+					
 			
+
 });
-		
 
-}
-
+  }
 
 io.sockets.on("connection", loadClients);
 
 
- 
- 
-
-	 http.listen(3000);
+http.listen(3000);
 
   

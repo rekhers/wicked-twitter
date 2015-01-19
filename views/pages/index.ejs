@@ -10,12 +10,9 @@
 	<script>
 			    
 	var socket = io.connect();
-
-
 		socket.on('stream', function(tweet){
 				$('#tw').prepend('<h4>' + tweet.text + '</h4>' + '</br>');
 					});
-		
 
 	</script>
 	
