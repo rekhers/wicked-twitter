@@ -23,19 +23,38 @@ var client = new twitter({
    });
    
   
- 
+  String.prototype.contains = function(it) { 
+	   return this.indexOf(it) != -1; 
+   };
+   
+    
  // to do: set up max connection one per user per session
    io.sockets.on("connection", function(socket){
-	console.log('connected');	
-	
+	   console.log('connected');	
 
+	   var US = ['-125.0011', '24.9493', '-66.9326', '49.5904'];	
+		
+	var stream = client.stream('statuses/filter', {locations: US});
+		stream.on('tweet', function(tweet){
+			
+			//console.log(tweet.coordinates.coordinates);
+  			io.sockets.emit('stream', tweet);
+			
+			
+            if (tweet.coordinates){
+              if (tweet.coordinates !== null){
+                //If so then build up some nice json and send out to web sockets
+                var outputPoint = {"lat": tweet.coordinates.coordinates[0],"lng": tweet.coordinates.coordinates[1]};
+                //socket.emit('stream', outputPoint);
+				
+			}
+		}
+			
+			//socket.broadcast.emit('stream', tweet.coordinates);
 
-	var stream = client.stream('statuses/filter', {track: 'wicked'});
-			stream.on('tweet', function(tweet){
-					 io.sockets.emit('stream', tweet);
-	
-	
-	
+		
+		
+				
 			 });
   
 			 });
