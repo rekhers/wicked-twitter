@@ -16,10 +16,10 @@ var wicked = "wicked";
 
 //verification 
 var client = new twitter({
-     consumer_key: 'qfxuGZKQF8DtdZAB8oHHltsDQ',
-     consumer_secret: 'lEbRO3q0L5YoMUz8fwLQ0yfvHfjKgLD3smTSLdVC90TUYFpokr',
-     access_token: '23701093-7MGYRnLFjUOMGlkEKIy2KzrYNRi2baJ1e02vH7PGu',
-     access_token_secret: 'CebOsppcGbXowQF5lqbQ78K9Dm8R8bpsCMyfwGRcfEJ1G'
+     consumer_key: '',
+     consumer_secret: '',
+     access_token: '',
+     access_token_secret: ''
    });
    
   
@@ -34,7 +34,7 @@ var client = new twitter({
 
 	   var US = ['-125.0011', '24.9493', '-66.9326', '49.5904'];	
 		
-	var stream = client.stream('statuses/filter', {locations: US});
+	var stream = client.stream('statuses/filter', {track: wicked});
 		stream.on('tweet', function(tweet){
 			
 			//console.log(tweet.coordinates.coordinates);
